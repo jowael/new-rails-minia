@@ -1,11 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Posts" %>
+
 <h1>Posts</h1>
 
-<% if @posts.any? %>
-  <ul>
-    <% @posts.each do |post| %>
-      <li><%= link_to post.title, post_path(post) %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No posts yet.</p>
-<% end %>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New post", new_post_path %>
